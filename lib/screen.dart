@@ -15,7 +15,6 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    final provideer = Provider.of<count_provider>(context,listen: false);
     print("Full Build");
     return Scaffold(
       appBar: AppBar(
@@ -23,8 +22,8 @@ class _MainScreenState extends State<MainScreen> {
         title: Text("Provider"),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          provideer.set_count();
+        onPressed: () {
+          context.read<count_provider>().set_count();
         },
         child: Icon(Icons.add),
       ),
